@@ -1,3 +1,22 @@
+# Created by https://www.toptal.com/developers/gitignore/api/linux,python
+# Edit at https://www.toptal.com/developers/gitignore?templates=linux,python
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -25,6 +44,68 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+# Fichiers générés par l'interpréteur Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environnements virtuels
+venv/
+.env/
+*.env
+
+# Configuration IDE
+.vscode/
+.idea/
+
+# Fichiers de logs
+*.log
+*.out
+*.err
+
+# Fichiers spécifiques au système d'exploitation
+.DS_Store
+Thumbs.db
+*.swp
+
+# Dépendances Python
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Fichiers de tests
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.xml
+*.cover
+.cache
+
+# Dépendances Node.js (si vous utilisez du JS/Node.js)
+node_modules/
+npm-debug.log*
+
+# Clés et fichiers sensibles
+*.key
+*.crt
+*.pem
+*.sqlite3
+
+# Fichiers de déploiement
+*.zip
+*.tar.gz
+*.bak
+*.tmp
+
+# Autres fichiers que vous souhaitez ignorer
+# Ajoutez ici tout fichier spécifique à votre projet
+
+venv/
+csv/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -106,10 +187,8 @@ ipython_config.py
 #pdm.lock
 #   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
 #   in version control.
-#   https://pdm.fming.dev/latest/usage/project/#working-with-version-control
+#   https://pdm.fming.dev/#use-with-ide
 .pdm.toml
-.pdm-python
-.pdm-build/
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
 __pypackages__/
@@ -160,3 +239,15 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+### Python Patch ###
+# Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
+poetry.toml
+
+# ruff
+.ruff_cache/
+
+# LSP config files
+pyrightconfig.json
+
+# End of https://www.toptal.com/developers/gitignore/api/linux,python

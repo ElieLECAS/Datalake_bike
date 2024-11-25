@@ -1,0 +1,5 @@
+pandas
+pyodbc
+sqlalchemy
+azure-storage-blob
+python-dotenv
