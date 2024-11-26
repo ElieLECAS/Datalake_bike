@@ -1,12 +1,20 @@
 from azure.storage.blob import BlobServiceClient, generate_blob_sas, BlobSasPermissions
 from datetime import datetime, timedelta
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+accountname = os.getenv('AZ_ACCOUNT')
+accountkey = os.getenv('AZ_ACCOUNT_KEY')
+containername = os.getenv('AZ_CONTAINER_NAME')
+blobname = os.getenv('AZ_BLOB_NAME')
 
 # Informations de base
-account_name = "datalakedeviavals"
-account_key = "Di7GZT/MHmRkRD6UTcIZmjnuWWhye/yvN2nFUTrgP380meAg4ggupT8RBGmL3IFnoI6aTqam3WFe+AStF56q9g=="
-container_name = "datalakedeviavals"
-blob_name = "data"
+account_name = f"{accountname}"
+account_key = f"{accountkey}"
+container_name = f"{containername}"
+blob_name = f"{blobname}"
 
 # Durée de validité du SAS
 expiry_time = datetime.utcnow() + timedelta(hours=1)  # Expire dans 1 heure
