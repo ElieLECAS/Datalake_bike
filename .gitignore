@@ -161,6 +161,7 @@ target/
 
 machine_learning_unzipped/
 nlp_data_csv/
+images_output/
 
 # IPython
 profile_default/

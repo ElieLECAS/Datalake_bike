@@ -20,13 +20,13 @@ blob_name = f"{blobname}"
 expiry_time = datetime.utcnow() + timedelta(hours=1)  # Expire dans 1 heure
 
 # Permissions SAS
-permissions = BlobSasPermissions(read=True, write=True, delete=True, list=True)
+permissions = BlobSasPermissions(read=True, list=True)
 
 # Génération du SAS
 sas_token = generate_blob_sas(
     account_name=account_name,
     container_name=container_name,
-    blob_name=blob_name,  # Supprimez cette ligne si vous générez un SAS pour un conteneur
+    blob_name=blob_name,
     account_key=account_key,
     permission=permissions,
     expiry=expiry_time

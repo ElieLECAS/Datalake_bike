@@ -3,3 +3,5 @@ pyodbc
 sqlalchemy
 azure-storage-blob
 python-dotenv
+pyarrow
+fastparquet
