@@ -11,3 +11,6 @@ AZ_ACCOUNT=
 AZ_ACCOUNT_KEY=
 AZ_CONTAINER_NAME=
 AZ_BLOB_NAME=
+
+Ajouter cron
+Regler le souci de mdp et réécriture lors de l'installation de odbc

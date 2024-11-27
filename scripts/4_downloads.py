@@ -3,6 +3,9 @@ from datetime import datetime, timedelta
 import os
 from dotenv import load_dotenv
 
+
+# --------------------------------------
+
 load_dotenv()
 
 accountname = os.getenv('AZ_ACCOUNT')
@@ -10,14 +13,15 @@ accountkey = os.getenv('AZ_ACCOUNT_KEY')
 containername = os.getenv('AZ_CONTAINER_NAME')
 blobname = os.getenv('AZ_BLOB_NAME')
 
-# Informations de base
+# --------------------------------------
+
 account_name = f"{accountname}"
 account_key = f"{accountkey}"
 container_name = f"{containername}"
 blob_name = f"{blobname}"
 
 # Durée de validité du SAS
-expiry_time = datetime.utcnow() + timedelta(hours=1)  # Expire dans 1 heure
+expiry_time = datetime.utcnow() + timedelta(hours=1)
 
 # Permissions SAS
 permissions = BlobSasPermissions(read=True, list=True)
@@ -40,8 +44,6 @@ print("SAS Token:", sas_token)
 print("Blob URL with SAS:", blob_url_with_sas)
 
 
-# Remplacez par vos informations
-account_name = "datalakedeviavals"
 container_name = "data"
 
 # Créer une connexion BlobServiceClient
@@ -54,11 +56,6 @@ blob_service_client = BlobServiceClient(
 container_client = blob_service_client.get_container_client(container_name)
 
 print(f"Connexion réussie au conteneur {container_name}.")
-
-# Liste des blobs (fichiers) dans le conteneur
-print("Blobs disponibles :")
-for blob in container_client.list_blobs():
-    print(blob.name)
 
 # Créer une connexion BlobServiceClient
 connection_string = f"DefaultEndpointsProtocol=https;AccountName={account_name};AccountKey={account_key};EndpointSuffix=core.windows.net"
@@ -79,17 +76,15 @@ for blob in container_client.list_blobs():
     blob_name = blob.name
     local_file_path = os.path.join(local_folder, blob_name)
 
-    # Vérifiez si un fichier ou un répertoire existe déjà
     parent_dir = os.path.dirname(local_file_path)
     if os.path.exists(parent_dir):
         if os.path.isfile(parent_dir):
             # Si un fichier existe avec le même nom, le supprimer
             os.remove(parent_dir)
 
-    # Créez les répertoires nécessaires
     os.makedirs(parent_dir, exist_ok=True)
 
-    # Télécharger le blob
+    # Télécharger le blob en local
     with open(local_file_path, "wb") as file:
         blob_data = container_client.download_blob(blob_name)
         file.write(blob_data.readall())

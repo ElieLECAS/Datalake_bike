@@ -4,8 +4,10 @@ import tarfile
 import gzip
 import shutil
 
-# Chemin du dossier contenant les fichiers ZIP téléchargés
+# Dossier contenant les fichiers ZIP téléchargés
 downloads_folder = "downloads/machine_learning"
+
+# Dossier de sortie contenant les fichiers dézippés
 unzipped_folder = "./machine_learning_unzipped"
 
 # Créez le dossier pour les fichiers extraits si nécessaire
@@ -43,7 +45,7 @@ for root, dirs, files in os.walk(downloads_folder):
     for file in files:
         if file.endswith(".zip"):
             zip_file_path = os.path.join(root, file)
-            extract_path = os.path.join(unzipped_folder, os.path.splitext(file)[0])  # Crée un dossier pour chaque ZIP
+            extract_path = os.path.join(unzipped_folder, os.path.splitext(file)[0])
             os.makedirs(extract_path, exist_ok=True)
 
             try:
@@ -52,7 +54,7 @@ for root, dirs, files in os.walk(downloads_folder):
                     zip_ref.extractall(extract_path)
                     print(f"Fichier ZIP '{file}' extrait dans '{extract_path}'.")
 
-                    # Maintenant, extraire les fichiers à l'intérieur du ZIP si ce sont des archives compressées
+                    
                     for zip_file in zip_ref.namelist():
                         if zip_file.endswith(('.tgz', '.tar', '.gz')):
                             inner_file_path = os.path.join(extract_path, zip_file)
@@ -61,7 +63,7 @@ for root, dirs, files in os.walk(downloads_folder):
                                 extract_tar_gz(inner_file_path, extract_path)
                             # Si c'est un fichier .gz
                             elif zip_file.endswith('.gz'):
-                                extract_gz(inner_file_path, os.path.join(extract_path, zip_file[:-3]))  # Retirer '.gz' de l'extension
+                                extract_gz(inner_file_path, os.path.join(extract_path, zip_file[:-3]))
             except zipfile.BadZipFile:
                 print(f"Le fichier '{file}' n'est pas un fichier ZIP valide.")
 
