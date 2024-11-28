@@ -34,7 +34,7 @@ WHERE TABLE_TYPE = 'BASE TABLE'
 # Exécuter la requête et charger les résultats dans un DataFrame
 df_tables = pd.read_sql(query_tables, conn)
 
-output_dir = 'csv'
+output_dir = '/home/elie/Documents/Code/Briefs/Datalake_bike/csv'
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
 

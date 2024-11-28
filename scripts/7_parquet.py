@@ -34,6 +34,8 @@ if not os.path.exists(output_dir):
 csv_file_path = os.path.join(output_dir, "metadata.csv")
 df_combined = pd.concat([df1, df2, df3], ignore_index=True)
 
+df_combined = df_combined.head(1000)
+
 
 for index, row in df_combined.iterrows():
     # Récupérer l'image encodée (Base64 ou bytes)

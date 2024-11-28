@@ -1,6 +1,5 @@
-python3 -m venv venv
-source venv/bin/activate
-pip install -r scripts/requirements.txt
+cd /home/elie/Documents/Code/Briefs/Datalake_bike/
+bash scripts/1_pip_venv.sh
 
 /home/elie/Documents/Code/Briefs/Datalake_bike/venv/bin/python scripts/3_db.py
 /home/elie/Documents/Code/Briefs/Datalake_bike/venv/bin/python scripts/4_downloads.py
