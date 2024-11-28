@@ -23,10 +23,6 @@ df1 = dataframes["df1"]
 df2 = dataframes["df2"]
 df3 = dataframes["df3"]
 
-df1 = df1
-df2 = df2
-df3 = df3
-
 output_dir = "images_output/"
 if not os.path.exists(output_dir):
     os.makedirs(output_dir)
